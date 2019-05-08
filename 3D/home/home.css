@@ -1,0 +1,283 @@
+#screen
+{
+    border: red solid 1px;
+    width: 800px;
+    height:800px;
+     position: absolute;
+}
+
+#home_base
+{
+    /*border: red solid 1px;*/
+    width: 40%;
+    height:20%;
+    left:30%;
+    top:30%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transform:rotateY(-65deg) rotateX(65deg) rotateZ(0deg);
+     /*!*scale(0.5,0.5)*! perspective(800px)*/
+    background-color: rgba(255, 230, 233, 0.7);
+}
+
+#dimian
+{
+    width: 100%;
+    height:100%;
+    position: absolute;
+    transform:rotateY(0deg) rotateX(0deg) translateZ(-80px);
+    background-color: rgba(67, 255, 61, 0.7);
+                background-image: url("地板.jpeg ");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+#home_top
+{
+    width: 120%;
+    left:-10%;
+    height:100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transform:rotateY(0deg) rotateX(0deg) translateZ(35px);
+    /*background-color: rgba(255, 32, 32, 0.7);*/
+}
+
+#home_top_1
+{
+    width: 100%;
+    height:100%;
+    position: absolute;
+    transform:rotateY(0deg) rotateX(-45deg) translateZ(100px);
+    background-color: rgba(95, 88, 255, 0.7);
+    top: -9%;
+            background-image: url("瓦.jpeg");
+    background-size: 100%;
+}
+#home_top_2
+{
+    top: 9%;
+    width: 100%;
+    height:100%;
+    position: absolute;
+    transform:rotateY(0deg) rotateX(45deg) translateZ(100px);
+    background-color: rgba(64, 255, 71, 0.7);
+                background-image: url("瓦.jpeg");
+    background-size: 100%;
+}
+
+
+
+#left_wall
+{
+    width: 50%;
+    height:100%;
+    position: absolute;
+    transform:rotateY(90deg) rotateX(0deg) rotateZ(90deg) translateZ(-80px);
+    background-color: rgba(45, 255, 42, 0.7);
+        background-image: url("墙.jpeg");
+    background-size: 100%;
+}
+
+.wall_0
+{
+        width: 100%;
+        height: 50%;
+    position: absolute;
+    top: 100%;
+}
+.wall_1
+{
+        border-style: solid;
+        border-width: 0 80px 80px 80px;
+        border-color: transparent transparent #c0c0c0 transparent;
+        transform:rotateZ(180deg);
+        position: absolute;
+
+}
+.wall_window_0
+{
+    width: 30%;
+    height:30%;
+    position: absolute;
+    border: #c0c0c0 solid 3px;
+    left: 35%;
+    top: 35%;
+    background-color: #5a538e;
+
+}
+.wall_window_1
+{
+    width: 100%;
+    height:0;
+    position: absolute;
+    border: #c0c0c0 solid 1px;
+    top: 50%;
+
+}
+.wall_window_2
+{
+    width: 0;
+    height:100%;
+    position: absolute;
+    border: #c0c0c0 solid 1px;
+   left: 50%;
+
+}
+
+
+#right_wall
+{
+    width: 50%;
+    height:100%;
+    position: absolute;
+    transform:rotateY(90deg) rotateX(0deg) rotateZ(90deg) translateZ(240px);
+    background-color: rgba(255, 251, 33, 0.7);
+        background-image: url("墙.jpeg");
+    background-size: 100%;
+}
+#back_wall
+{
+    width: 100%;
+    height:100%;
+    position: absolute;
+    transform:rotateY(0deg) rotateX(90deg) translateZ(80px);
+    background-color: rgba(255, 251, 33, 0.7);
+        background-image: url("墙.jpeg");
+    background-size: 100%;
+}
+#front_wall
+{
+    width: 100%;
+    height:100%;
+    position: absolute;
+    transform:rotateY(0deg) rotateX(-90deg) translateZ(80px);
+    background-color: rgba(255, 251, 33, 0.7);
+    background-image: url("墙.jpeg");
+    background-size: 100%;
+}
+#men
+{
+    width: 20%;
+    height:80%;
+    position: absolute;
+    /*border: red solid 1px;*/
+    left:15%;
+    top: 20%;
+}
+#men_kuang_1
+{
+    width: 100%;
+    height:40%;
+    position: absolute;
+    background-color: #fae9f0;
+    border-radius: 50%;
+
+}
+#men_kuang_2
+{
+    width: 100%;
+    height:80%;
+    position: absolute;
+    background-color: #fae9f0;
+    top:20%;
+}
+#men_ban_1
+{
+    width: 80%;
+    height:30%;
+    position: absolute;
+    background-color: #faeeee;
+    top:5%;
+    left: 10%;
+    border-radius: 50%;
+}
+#men_ban_2
+{
+    width: 80%;
+    height:80%;
+    position: absolute;
+    background-color: #faeeee;
+    top:20%;
+    left: 10%;
+}
+
+#men_window_1
+{
+    width: 80%;
+    height:40%;
+    position: absolute;
+    background-color: #430619;
+    top:-8%;
+    left: 10%;
+    border-radius: 50%;
+}
+
+#men_window_2
+{
+    width: 80%;
+    height:30%;
+    position: absolute;
+    background-color: #430619;
+    top:10%;
+    left: 10%;
+}
+
+#men_window_2_1
+{
+    width: 100%;
+    height:10%;
+    position: absolute;
+    background-color:#faeeee;
+    top:15%;
+}
+#men_window_2_2
+{
+    width: 100%;
+    height:10%;
+    position: absolute;
+    background-color:#faeeee;
+    top:60%;
+}
+
+#men_window_2_3
+{
+    width: 8%;
+    height:160%;
+    position: absolute;
+    background-color:#faeeee;
+    top: -60%;
+    left: 46%;
+}
+#bashou
+{
+    width: 10%;
+    height:5%;
+    position: absolute;
+    background-color: #430619;
+    top: 55%;
+    left: 85%;
+    border-radius: 50%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

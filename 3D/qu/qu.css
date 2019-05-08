@@ -1,0 +1,71 @@
+body {
+    background: #3498db;
+    color: black;
+    color: white;
+    font-size: 36px;
+    line-height: 2.8em;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.container {
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+.flip-page {
+    transform-style: preserve-3d;
+    transform: perspective(2000px);
+    background: rgba(0, 0, 0, 0.3);
+}
+@keyframes flop {
+    0% {
+        transform: rotateY(-1deg);
+    }
+    100% {
+        transform: rotateY(-2.4deg);
+    }
+}
+.flip-step {
+    transform-origin: 0 50%;
+    transform-style: preserve-3d;
+    transform: rotateY(0deg);
+    position: relative;
+    animation: flop 1s ease-in-out infinite alternate;
+}
+.flip-dragged .flip-step {
+    animation: none;
+}
+.flip-side {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transform-style: preserve-3d;
+}
+.flip-step-two-sided .flip-side {
+    backface-visibility: hidden;
+}
+.flip-backside {
+    transform: rotateY(180deg);
+    background: pink;
+}
+.flip-shading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 2px;
+    background: rgba(0, 10, 20, 0.15);
+    transform: translateZ(0.5px);
+}
+.flip-no-shading .flip-shading {
+    display: none;
+}
+.flip-debug {
+    position: absolute;
+}
+.credit {
+    font-size: 25px;
+    line-height: 1.2em;
+    color: white;
+}
