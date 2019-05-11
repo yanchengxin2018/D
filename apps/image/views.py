@@ -10,38 +10,76 @@ class TriangleImageViewSet(GenericViewSet,mixins.CreateModelMixin):
     serializer_class = TriangleImageSerializer
 
     def create(self, request, *args, **kwargs):
-        request.data.get('',False)
-        self.b_c = request.data.get('b_c',False)
-        self.b_i = request.data.get('b_i',False)
+        data=request.data
+        self.height=data.get('height',None)
+        self.height_position=data.get('height_position',None)
+        self.bottom_width=data.get('bottom_width',None)
+        self.back_color=data.get('back_color',None)
 
-        self.bk = request.data.get('bk',False)
-        self.bk_px = request.data.get('bk_px',False)
-        self.h = request.data.get('h',False)
-        self.h_a = request.data.get('h_a',False)
-        self.di = request.data.get('di',False)
-
-        if self.b_i:
-            back_path=self.get_back_image()
-            return Response({'back_path':back_path})
+        if self.height_position<0:
+            self.width=self.bottom_width+abs(self.height_position)
+            self.x1=0
+            self.x2=abs(self.height_position)
+            self.x3=self.width
+        elif self.height_position>self.bottom_width:
+            self.width=self.height_position
+            self.x1=self.width
+            self.x2=0
+            self.x3=self.bottom_width
         else:
-            if self.b_c:
-                back_path = self.get_back_color()
-                return Response({'back_path':back_path})
-            else:
-                return Response('背景颜色及背景图片参数都是空的,服务器不需要处理任何数据',status=400)
+            self.width=self.bottom_width
+            self.x1=self.height_position
+            self.x2=0
+            self.x3=self.bottom_width
+        self.y1=0
+        self.y2=self.height
+        self.y3=self.height
+        self.img=Image.new('RGBA',(self.width,self.height),(255,255,255,0))
+        draw_triang()
 
-    def get_back_color(self):
-        img=I.new('RGBA',(int(self.di),int(self.h)),self.b_c)
-        
-        img.show()
+    def draw_triang(self):
+        img=self.img
+        L,H=img.size
+        for l in range(L):
+            for h in range(H):
+                if self.is_in_triang(l,H-h):
+                    img.putpixel((l,h),(0,0,0,255))
+        self.img = img.transpose(Image.FLIP_TOP_BOTTOM)
+        return self.img
+
+    # 判断这个点是不是在这个三角形内部
+    def is_in_triang(self,x,y):
+        left_line_y=self.left_line(x)
+        right_line_y=self.right_line(x)
+        if self.height_position<0:
+            status_1=False if y>left_line_y else True
+            status_2=False if y<right_line_y else True
+        elif self.height_position>self.bottom_width:
+            status_1=False if y<left_line_y else True
+            status_2=False if y>right_line_y else True 
+        else:
+            status_1=False if y<left_line_y else True
+            status_2=False if y<right_line_y else True 
+        return True if status_1 and status_2 else False
 
 
-        return 'path/back_color'
-
-    def get_back_image(self):
-        return 'path/back_image'
-
-
+    # 左边那条两点式
+    def left_line(self,x):
+        x1=self.x1
+        x2=self.x2
+        y1=self.y1
+        y2=self.y2
+        y=(x-x1)*(y2-y1)/(x2-x1)+y1
+        return y
+    
+    # 右边那条两点式
+    def right_line(self,x):
+        x1=self.x1
+        x2=self.x3
+        y1=self.y1
+        y2=self.y3
+        y=(x-x1)*(y2-y1)/(x2-x1)+y1
+        return y
 
 
 
